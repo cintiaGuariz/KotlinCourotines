@@ -1,6 +1,14 @@
 package com.cursoandroid.kotlincoroutines.main
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -10,25 +18,20 @@ import com.cursoandroid.kotlincoroutines.ui.themes.CoroutinesBasicsTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.PointerIconDefaults.Text
-import androidx.compose.ui.semantics.Role.Companion.Button
-import androidx.compose.ui.semantics.SemanticsProperties.Text
-import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.pm.ShortcutInfoCompat.Surface
 import kotlinx.coroutines.Dispatchers
-import org.w3c.dom.Text
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen(viewModel: MainViewModel){
     CoroutinesBasicsTheme {
         Scaffold(
             topBar = { TopAppBar (title = { Text(stringResource(R.string.app_name)) })
             }
-        ) {
-            MainUI(viewModel)
+        ){
+           MainUI(viewModel)
         }
     }
 }
@@ -81,7 +84,7 @@ private fun MainText(leftText: String, rightText: String){
 }
 
 @Composable
-private fun DefaultText(text: String, modifier: Modifier) {
+private fun DefaultText(text: String, modifier: Modifier){
     Surface(
         modifier = modifier.padding(all = 5.dp),
         color = Color.LightGray
@@ -93,6 +96,7 @@ private fun DefaultText(text: String, modifier: Modifier) {
             textAlign = TextAlign.Center
         )
     }
+
 }
 
 @Composable
